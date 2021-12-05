@@ -1,4 +1,6 @@
-output/bills/**
+output/**
 browser
 output.xml
 playwright-log.txt
+report.html
+log.html
