@@ -17,6 +17,7 @@ _[Source](https://twitter.com/levelsio/status/1325076943495188481)_
 ## Supported Providers
 
 - [DigitalOcean](https://www.digitalocean.com/)
+- [Pipedrive](https://www.pipedrive.com)
 - Your provider: **via Pull Request or Issue**
 
 # How to use the Bill Collector

@@ -5,19 +5,43 @@ Library    OperatingSystem
 
 *** Keywords ***
 Get Providers
-    ${providers}=    Create List    Digital Ocean
+    ${providers}=    Create List    Digital Ocean    Pipedrive
 
     [Return]    ${providers}
 
+Get Invoice Id
+    [Arguments]    ${date}    ${invoiceNumber}
+
+    ${invoiceId}=    Evaluate    "${date}${invoiceNumber}".replace(' ', '_').replace('#', '')
+
+    [Return]    ${invoiceId}
+
+Get Invoice Label
+    [Arguments]    ${date}    ${invoiceNumber}
+
+    IF    "${invoiceNumber}" == "None"
+        ${invoiceLabel}=    Set Variable    ${date}
+    ELSE
+        ${invoiceLabel}=    Set Variable    ${date} - ${invoiceNumber}
+    END
+
+    [Return]    ${invoiceLabel}
+
+
 Display Picker
-  [Arguments]    ${bills}
+  [Arguments]    ${bills}    ${hasMorePages}
   Add heading     Bills to collect
   FOR    ${bill}    IN    @{bills}
+      ${invoiceNumber}=    Set Variable    ${bill["invoiceNumber"]}
       ${billDate}=    Set Variable    ${bill["date"]}
-      Add checkbox    name=${billDate}        label=${billDate}       default=False
+      ${billId}=    Get Invoice Id    ${billDate}    ${invoiceNumber}
+      ${invoiceLabel}=    Get Invoice Label    ${billDate}    ${invoiceNumber}
+      Add checkbox    name=${billId}        label=${invoiceLabel}       default=False
   END
 
-  Add submit buttons    buttons=Get older bills, Done
+  IF  "${hasMorePages}" == "TRUE"
+      Add submit buttons    buttons=Get older bills, Done
+  END
 
   ${selectedBills}=      Run dialog
 
@@ -32,10 +56,14 @@ Display Picker
 Download Selected Bills
     [Arguments]    ${bills}    ${selectedBills}
     FOR    ${bill}    IN    @{bills}
+        ${invoiceNumber}=    Set Variable    ${bill["invoiceNumber"]}
         ${billDate}=    Set Variable    ${bill["date"]}
-        IF    ${selectedBills}[${billDate}]
+        ${billId}=    Get Invoice Id    ${billDate}    ${invoiceNumber}
+
+        IF    ${selectedBills}[${billId}]
             ${file}=    Download    ${bill}[downloadURL]
-            Move File    ${file}[saveAs]    %{ROBOT_ARTIFACTS}/bills/${billDate}.pdf
+            ${invoiceLabel}=    Get Invoice Label    ${billDate}    ${invoiceNumber}
+            Move File    ${file}[saveAs]    %{ROBOT_ARTIFACTS}/bills/${invoiceLabel}.pdf
         END
     END
 

@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    helpers.robot
-Resource    digitalocean.robot
+Resource    ./providers/digitalocean.robot
+Resource    ./providers/pipedrive.robot
 
 *** Tasks ***
 

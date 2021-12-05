@@ -3,7 +3,7 @@ Library    RPA.Browser.Playwright
 Library    RPA.Dialogs
 Library    Collections
 Library    OperatingSystem
-Resource    helpers.robot
+Resource    ../helpers.robot
 
 *** Keywords ***
 Move To Next Page
@@ -30,7 +30,7 @@ Collect Page Bills
         IF    ${hasDownload}
             ${date}=    Get Text    ${element} > .date
             ${downloadURL}=    Get Property    ${element} > .invoice > a:first-of-type    href
-            ${bill}=    Create Dictionary    date=${date}    downloadURL=${downloadURL}
+            ${bill}=    Create Dictionary    invoiceNumber=None    date=${date}    downloadURL=${downloadURL}
             Append To List    ${bills}    ${bill}
         END
     END
@@ -42,14 +42,13 @@ Digital Ocean
     New Page    url=https://cloud.digitalocean.com/account/billing
     Show dialog    title=Login to DigitalOcean then click close    on_top=true
     Wait all dialogs
-
     Wait Until Network Is Idle
     ${pageCount}=    Get Element Count    a.page.pagination-button
 
     FOR    ${pageNumber}    IN RANGE    ${pageCount}
-      ${bills}=    Collect Page Bills
+      ${bills}=    Digital Ocean.Collect Page Bills
 
-      ${selectedBills}    ${shouldExit}    Display Picker    ${bills}
+      ${selectedBills}    ${shouldExit}    Display Picker    ${bills}    TRUE
       Download Selected Bills    ${bills}    ${selectedBills}
 
       Exit For Loop If    "${shouldExit}" == "TRUE"
