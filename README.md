@@ -22,9 +22,24 @@ _[Source](https://twitter.com/levelsio/status/1325076943495188481)_
 
 # How to use the Bill Collector
 
-_A Robocorp account will be necessary to download the assistant, available under the free plan without needing to provide a credit card_
+## Via Command-Line (for technical users)
 
-Download the [Robocorp Assistant](https://robocorp.com/docs/control-room/configuring-assistants/installation).
+_Prerequisite_:
+
+- [RCC](https://github.com/robocorp/rcc)
+
+Place yourself at the root of this folder and run the following command:
+
+```bash
+rcc run
+```
+
+## Via User-Interface (for technical and non-technical users)
+
+_Prerequisites_:
+
+- [A Robocorp account](https://robocorp.com) – necessary to download the assistant, available under the free plan without needing to provide a credit card
+- [Robocorp Assistant](https://robocorp.com/docs/control-room/configuring-assistants/installation)
 
 Once downloaded and installed, click on _Install a community assistant_ and paste in the URL of this repository: `https://github.com/bendersej/bill-collector`.
 
