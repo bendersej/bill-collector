@@ -1,0 +1,4 @@
+output/bills/**
+browser
+output.xml
+playwright-log.txt
