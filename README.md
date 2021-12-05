@@ -4,7 +4,7 @@
 
 Multiple providers, such as `DigitalOcean` do not offer an easy way to retrieve the bills.
 
-Because I don't wantAs for services offering to automate the collection of bills, they require to provide the credentials, which is a 🚩.
+Some online service offer to automate the collection of bills, however they require to provide the credentials, which is a 🚩.
 
 ---
 
@@ -20,6 +20,8 @@ _[Source](https://twitter.com/levelsio/status/1325076943495188481)_
 - Your provider: **via Pull Request or Issue**
 
 # How to use the Bill Collector
+
+_A Robocorp account will be necessary to download the assistant, available under the free plan without needing to provide a credit card_
 
 Download the [Robocorp Assistant](https://robocorp.com/docs/control-room/configuring-assistants/installation).
 
