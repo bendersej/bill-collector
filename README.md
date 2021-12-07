@@ -2,17 +2,37 @@
 
 ## What is it?
 
-Multiple providers, such as `DigitalOcean` do not offer an easy way to retrieve the bills.
+An automation to collect bills automatically **without giving away any access credentials**.
 
-Some online service offer to automate the collection of bills, however they require to provide the credentials, which is a 🚩.
+Multiple providers, such as `DigitalOcean` do not offer an easy way to retrieve bills.
+
+Some online service offer to automate the collection of bills, however they require to provide the credentials, which is something I can't imagine doing ever.
 
 ---
 
-![Levelsio Tweet](https://i.imgur.com/50YTF2o.png)
+![Levelsio Tweet](https://beautiful-space.fra1.cdn.digitaloceanspaces.com/bill-collector/tweet.png)
 
 _[Source](https://twitter.com/levelsio/status/1325076943495188481)_
 
 ---
+
+## Show me!
+
+_An example with DigitalOcean, the first provider to be supported_
+
+### Run the automation
+
+_Note that the command-line is not the only option, see the other option below_
+
+https://user-images.githubusercontent.com/10613140/144981442-05dec750-8108-4904-9fa8-9388d739ec13.mp4
+
+### Login (handover)
+
+https://user-images.githubusercontent.com/10613140/144982845-b7eb40c4-a080-450b-a6ea-1566d10eabb3.mp4
+
+### Choose the bills to collect
+
+https://user-images.githubusercontent.com/10613140/144982395-3784e654-01ee-4bc4-ab9f-d8ba5d3bfbd5.mp4
 
 ## Supported Providers
 
