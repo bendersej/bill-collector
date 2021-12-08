@@ -2,6 +2,7 @@
 Resource    helpers.robot
 Resource    ./providers/digitalocean.robot
 Resource    ./providers/pipedrive.robot
+Resource    ./providers/namecheap.robot
 
 *** Tasks ***
 

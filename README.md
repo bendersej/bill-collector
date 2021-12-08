@@ -38,6 +38,7 @@ https://user-images.githubusercontent.com/10613140/144982395-3784e654-01ee-4bc4-
 
 - [DigitalOcean](https://www.digitalocean.com/)
 - [Pipedrive](https://www.pipedrive.com)
+- [Namecheap](https://www.namecheap.com/)
 - Your provider: **via Pull Request or Issue**
 
 # How to use the Bill Collector

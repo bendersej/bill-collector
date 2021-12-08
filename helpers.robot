@@ -5,7 +5,7 @@ Library    OperatingSystem
 
 *** Keywords ***
 Get Providers
-    ${providers}=    Create List    Digital Ocean    Pipedrive
+    ${providers}=    Create List    Digital Ocean    Pipedrive    Namecheap
 
     [Return]    ${providers}
 
