@@ -1,4 +1,4 @@
-# Bill Collector
+# 🤖 Bill Collector 🤖
 
 ## What is it?
 
@@ -6,7 +6,7 @@ An automation to collect bills automatically **without giving away any access cr
 
 Multiple providers, such as `DigitalOcean` do not offer an easy way to retrieve bills.
 
-Some online service offer to automate the collection of bills, however they require to provide the credentials, which is something I can't imagine doing ever.
+Some online services offer to automate the collection of bills, however they require to provide the credentials.
 
 ---
 
