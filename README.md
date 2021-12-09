@@ -2,7 +2,7 @@
 
 ## What is it?
 
-An automation to collect bills automatically **without giving away any access credentials**.
+An automation to collect bills automatically **without providing any access credentials to an untrusted party**.
 
 Multiple providers, such as `DigitalOcean` do not offer an easy way to retrieve bills.
 
