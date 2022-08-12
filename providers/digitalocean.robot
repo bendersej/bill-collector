@@ -3,9 +3,19 @@ Library    RPA.Browser.Playwright
 Library    RPA.Dialogs
 Library    Collections
 Library    OperatingSystem
+Library    String
 Resource    ../helpers.robot
 
 *** Keywords ***
+Get Bill URL
+    [Arguments]    ${billLink}
+
+    ${billIdWithCustomerPrefix}=    Fetch From Right    ${billLink}    /billing/
+    ${billId}=    Fetch From Left    ${billIdWithCustomerPrefix}    ?
+
+    ${customerId}=    Execute JavaScript    window.currentUser.uuid
+
+    [Return]    https://cloud.digitalocean.com/v2/customers/${customerId}/invoices/${billId}/pdf
 Move To Next Page
     ${nextPageLink}=    Get Element    .next
     ${cssClasses}=    Get Attribute    ${nextPageLink}    class
@@ -29,7 +39,8 @@ Collect Page Bills
         ${hasDownload}=    Run Keyword And Return Status    Should Contain    ${text}    Download
         IF    ${hasDownload}
             ${date}=    Get Text    ${element} > .date
-            ${downloadURL}=    Get Property    ${element} > .invoice > a:first-of-type    href
+            ${billLink}=    Get Property    ${element} > .description > a:first-of-type    href
+            ${downloadURL}=    Get Bill URL    ${billLink}
             ${bill}=    Create Dictionary    invoiceNumber=None    date=${date}    downloadURL=${downloadURL}
             Append To List    ${bills}    ${bill}
         END
