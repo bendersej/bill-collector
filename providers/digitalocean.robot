@@ -36,8 +36,8 @@ Collect Page Bills
     ${elements}=    Get Elements    table#history tr
     FOR    ${element}    IN    @{elements}
         ${text}=    Get Text    ${element}
-        ${hasDownload}=    Run Keyword And Return Status    Should Contain    ${text}    Download
-        IF    ${hasDownload}
+        ${isBillRow}=    Run Keyword And Return Status    Should Contain    ${text}    CSV
+        IF    ${isBillRow}
             ${date}=    Get Text    ${element} > .date
             ${billLink}=    Get Property    ${element} > .description > a:first-of-type    href
             ${downloadURL}=    Get Bill URL    ${billLink}
